@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const POKEMON_SPECIES_API_URL = 'https://pokeapi.co/api/v2/pokemon-species/';
 
@@ -58,10 +59,14 @@ const WelcomePage = () => {
       {submittedName && (
         <div style={{ marginTop: '20px' }}>
           <h2>Salut {submittedName}!</h2>
-          <h3>Voici 3 Pokémon pour toi :</h3>
+          <h3>Voici 3 Pokémon pour toi. Lequel choisis-tu ?</h3>
           <ul>
             {pokemonList.map((pokemon, index) => (
-              <li key={index}>{pokemon}</li>
+              <li key={index}>
+                <Link to={'/map'}>
+                  {pokemon}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>

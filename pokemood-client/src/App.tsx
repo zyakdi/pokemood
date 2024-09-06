@@ -4,11 +4,9 @@ import WelcomePage from './components/WelcomePage'
 function App() {
 
   return (
-    <>
-      <div>
-        <WelcomePage />
-      </div>
-    </>
+    <div>
+      <WelcomePage />
+    </div>
   )
 }
 
