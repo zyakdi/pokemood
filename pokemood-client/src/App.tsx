@@ -1,5 +1,5 @@
 import './App.css'
-import WelcomePage from './components/WelcomePage'
+import WelcomePage from './pages/WelcomePage'
 
 function App() {
 
