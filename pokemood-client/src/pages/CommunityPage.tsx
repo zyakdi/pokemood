@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router';
 import { io } from 'socket.io-client'
+import { Map } from '../components/Map';
 
 const CommunityPage = () => {
   const location = useLocation();
@@ -30,9 +31,10 @@ const CommunityPage = () => {
   }, [name])
   return (
     <div>
-      <div>Welcome to the community page, {name}</div>
+      <div>Welcome to the community page, {name}!</div>
       <div>Connected users :</div>
       {userNames.map(userName => <div key={userName}>{userName}</div>)}
+      <Map users={userNames} />
     </div>
   )
 }
