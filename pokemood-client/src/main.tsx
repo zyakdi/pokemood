@@ -4,7 +4,7 @@ import App from './App.tsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './routes/ErrorPage.tsx';
-import MapPage from './routes/MapPage.tsx';
+import CommunityPage from './routes/CommunityPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -13,8 +13,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "map",
-    element: <MapPage />,
+    path: "community",
+    element: <CommunityPage />,
   },
 ]);
 

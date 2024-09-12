@@ -5,21 +5,21 @@ const POKEMON_SPECIES_API_URL = 'https://pokeapi.co/api/v2/pokemon-species/';
 
 const WelcomePage = () => {
 
-    const [name, setName] = useState<string>(''); // To store the user's name
-    const [submittedName, setSubmittedName] = useState<string | null>(null); // To store the submitted name
-    const [pokemonList, setPokemonList] = useState<string[]>([]); // To store the Pokémon names
+  const [name, setName] = useState<string>(''); // To store the user's name
+  const [submittedName, setSubmittedName] = useState<string | null>(null); // To store the submitted name
+  const [pokemonList, setPokemonList] = useState<string[]>([]); // To store the Pokémon names
 
-    // Function to handle the name input change
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setName(event.target.value);
-    };
+  // Function to handle the name input change
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+  };
 
-    // Function to handle form submission
-    const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault();
-        setSubmittedName(name);
-        fetchRandomPokemon(); // Fetch Pokémon names after form submission
-    };
+  // Function to handle form submission
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    setSubmittedName(name);
+    fetchRandomPokemon(); // Fetch Pokémon names after form submission
+  };
 
   // Fetch 3 random Pokémon names (in French) from the PokéAPI
   const fetchRandomPokemon = async () => {
@@ -35,11 +35,11 @@ const WelcomePage = () => {
     }
     setPokemonList(randomPokemon); // Update the state with the list of random Pokémon names
   };
-  
+
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <h1>Bien le bonjour. Quel est ton nom ?</h1>
-      
+
       <form onSubmit={handleSubmit}>
         <label htmlFor="nameInput">Nom: </label>
         <input
@@ -63,7 +63,7 @@ const WelcomePage = () => {
           <ul>
             {pokemonList.map((pokemon, index) => (
               <li key={index}>
-                <Link to={'/map'}>
+                <Link to={'/community'} state={{ name: submittedName }}>
                   {pokemon}
                 </Link>
               </li>
