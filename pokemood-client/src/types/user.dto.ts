@@ -1,5 +1,4 @@
-export class UserDto {
-  id: string;
+export interface UserDto {
   name: string;
   position: {
     left: number;

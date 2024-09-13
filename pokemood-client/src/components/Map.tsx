@@ -1,7 +1,8 @@
+import { UserDto } from "../types/user.dto";
 import { MapContainer, OverworldMapImage, TrainerContainer, TrainerImage, UserNameTag } from "./Map.style"
 
 interface MapProps {
-    users: string[]
+    users: UserDto[]
 }
 
 export const Map: React.FC<MapProps> = ({ users }) => {
@@ -9,10 +10,8 @@ export const Map: React.FC<MapProps> = ({ users }) => {
         <MapContainer>
             <OverworldMapImage src="/pokemon-map.png" alt="Community map" />
             {users.map(user => {
-                const leftPercentage = Math.random() * 90;
-                const topPercentage = Math.random() * 85;
-                return <TrainerContainer leftPercentage={leftPercentage} topPercentage={topPercentage}>
-                    <UserNameTag>{user}</UserNameTag>
+                return <TrainerContainer key={user.name} $leftPercentage={user.position.left} $topPercentage={user.position.top}>
+                    <UserNameTag>{user.name}</UserNameTag>
                     <TrainerImage src="/blue-trainer.png" />
                 </TrainerContainer>
             })}

@@ -13,14 +13,14 @@ export const TrainerImage = styled.img`
 `;
 
 interface TrainerContainerProps {
-    leftPercentage: number;
-    topPercentage: number;
+    $leftPercentage: number;
+    $topPercentage: number;
 }
 
 export const TrainerContainer = styled.div<TrainerContainerProps>`
     position: absolute;
-    left: ${({ leftPercentage }) => leftPercentage}%;
-    top: ${({ topPercentage }) => topPercentage}%;
+    left: ${({ $leftPercentage }) => $leftPercentage}%;
+    top: ${({ $topPercentage }) => $topPercentage}%;
 `;
 
 export const UserNameTag = styled.div`
